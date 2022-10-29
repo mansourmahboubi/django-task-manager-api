@@ -3,6 +3,8 @@
   "python.formatting.provider": "black",
   "python.languageServer": "Pylance",
   "editor.formatOnSave": true,
+  "python.linting.enabled": true,
+  "python.linting.mypyEnabled": true,
   "python.linting.mypyPath": ".venv/bin/mypy",
   "python.linting.mypyArgs": ["--config-file=${workspaceFolder}/mypy.ini"]
 }
