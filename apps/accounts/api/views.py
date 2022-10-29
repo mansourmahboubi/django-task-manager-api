@@ -1,6 +1,8 @@
 from ninja import Router
+
 router = Router()
 
-@router.get('')
+
+@router.get("")
 def health_check(request):
     return {"status": "up"}
