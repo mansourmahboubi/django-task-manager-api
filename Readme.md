@@ -29,7 +29,7 @@ http://localhost:8000/api/docs
 (developers can see others’ tasks in the project too)
 - [ ] list of user’s tasks in the
 project 
-- Project Manager assigns task to a developer (check permissions)
+- [ ] Project Manager assigns task to a developer (check permissions)
 ## Objectives
 - [ ] Designing the database
 - [ ] Architecture and software components
