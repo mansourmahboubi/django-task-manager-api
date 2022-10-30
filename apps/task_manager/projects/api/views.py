@@ -17,4 +17,5 @@ def tasks_list(request, project_slug, username: Optional[str] = None):
     # TODO: more meaning full error
     project = get_object_or_404(Project, slug=project_slug)
     tasks_list = services.tasks_list(project=project, username=username)
+    # TODO: pagination
     return tasks_list
