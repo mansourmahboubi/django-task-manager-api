@@ -15,6 +15,9 @@ class Project(models.Model):
     manager = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=False
     )
+    slug = models.SlugField(
+        max_length=20, unique=True, allow_unicode=True, db_index=True, null=False
+    )
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

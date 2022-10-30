@@ -35,8 +35,8 @@ http://localhost:8000/api/docs
 
 - [x] Login
 - [x] Signup
-- [ ] List of tasks in a project (developers can see others’ tasks in the project too)
-- [ ] List of user’s tasks in the project
+- [x] List of tasks in a project (developers can see others’ tasks in the project too)
+- [x] List of user’s tasks in the project
 - [ ] Project Manager assigns task to a developer (check permissions)
 
 ## Objectives

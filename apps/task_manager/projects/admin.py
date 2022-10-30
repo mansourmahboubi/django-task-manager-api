@@ -12,5 +12,6 @@ class ProjectMemberAdmin(admin.TabularInline):
 @admin.register(models.Project)
 class Project(admin.ModelAdmin):
     autocomplete_fields = ["manager"]
+    prepopulated_fields = {"slug": ("title",)}
 
     inlines = (ProjectMemberAdmin,)
