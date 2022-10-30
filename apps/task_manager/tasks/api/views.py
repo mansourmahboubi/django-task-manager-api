@@ -11,7 +11,7 @@ from . import schemas
 router = Router()
 
 
-@router.get("/{project_slug}/tasks/", response={200: List[schemas.TaskSchema]})
+@router.get("/project/{project_slug}/tasks/", response={200: List[schemas.TaskSchema]})
 def tasks_list(request, project_slug, username: Optional[str] = None):
     # TODO: more meaning full error
     project = get_object_or_404(Project, slug=project_slug)
