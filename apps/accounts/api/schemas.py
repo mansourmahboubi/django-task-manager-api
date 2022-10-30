@@ -15,8 +15,11 @@ class CreateUserSchema(UserSchema):
     password: str
 
 
-class UserLoginSchema(Schema):
+class UserNameSchema(Schema):
     username: str
+
+
+class UserLoginSchema(UserNameSchema):
     password: str
 
 

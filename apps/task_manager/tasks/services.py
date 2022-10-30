@@ -5,12 +5,12 @@ from django.utils.translation import gettext_lazy as _
 from apps.accounts.models import User
 from apps.task_manager.projects.models import Project
 
-from .models import Task
+from . import models
 
 
 def tasks_list(*, project: Project, username: Optional[str]):
     # TODO: better query
-    tasks = Task.objects.filter(project=project)
+    tasks = models.Task.objects.filter(project=project)
     if username:
         try:
             user = User.objects.get(username=username)
@@ -18,3 +18,9 @@ def tasks_list(*, project: Project, username: Optional[str]):
             return []
         tasks = tasks.filter(assignees__in=[user])
     return tasks
+
+
+def assign_task(*, task: models.Task, user: User) -> models.TaskAssignee:
+    # Todo: add perm check
+    task_assignee_obj = models.TaskAssignee.objects.create(user=user, task=task)
+    return task_assignee_obj

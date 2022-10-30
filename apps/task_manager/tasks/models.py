@@ -25,6 +25,7 @@ class Task(models.Model):
 
 
 class TaskAssignee(models.Model):
+    # TODO: unique assignee
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=False
     )
