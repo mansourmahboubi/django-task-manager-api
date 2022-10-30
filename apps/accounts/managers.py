@@ -4,6 +4,7 @@ from django.db import models
 
 class CustomUserManager(UserManager):
     def login(self, user, token) -> str:
+        # TODO: update login_time
         user.token = token
         user.save()
         return user

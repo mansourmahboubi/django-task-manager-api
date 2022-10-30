@@ -8,7 +8,7 @@ from . import services
 from .models import User
 
 
-class LoginTestSet:
+class TestSetLogin:
     @pytest.fixture
     def user(self):
         return User(
