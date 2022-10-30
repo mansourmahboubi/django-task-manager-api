@@ -1,6 +1,7 @@
 from typing import Optional
 
 from django.utils.translation import gettext_lazy as _
+from ninja.errors import HttpError
 
 from apps.accounts.models import User
 from apps.task_manager.projects.models import Project
@@ -20,7 +21,10 @@ def tasks_list(*, project: Project, username: Optional[str]):
     return tasks
 
 
-def assign_task(*, task: models.Task, user: User) -> models.TaskAssignee:
-    # Todo: add perm check
+def assign_task(
+    *, task: models.Task, user: User, assigner: User
+) -> models.TaskAssignee:
+    if assigner.id is not task.project.manager.id:
+        raise HttpError(403, _("You are not allowed to do this."))
     task_assignee_obj = models.TaskAssignee.objects.create(user=user, task=task)
     return task_assignee_obj

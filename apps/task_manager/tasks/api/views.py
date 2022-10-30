@@ -27,5 +27,5 @@ def assign_tasks(request, task_id, body: UserNameSchema):
     # TODO: more meaning full error
     task = get_object_or_404(models.Task, id=task_id)
     user = get_object_or_404(User, username=body.username)
-    services.assign_task(task=task, user=user)
+    services.assign_task(task=task, user=user, assigner=request.auth)
     return 200, {"detail": _("Task assinged.")}
