@@ -1,9 +1,10 @@
 from django.contrib.auth.models import UserManager
-from django.db import models
+
+from . import models
 
 
 class CustomUserManager(UserManager):
-    def login(self, user, token) -> str:
+    def login(self, user: "models.User", token: str) -> "models.User":
         # TODO: update login_time
         user.token = token
         user.save()
