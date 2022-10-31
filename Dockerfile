@@ -13,4 +13,4 @@ COPY --from=build-python /usr/local/bin/ /usr/local/bin/
 
 COPY . .
 
-ENTRYPOINT ["gunicorn", "core.asgi:application" ,"-k","uvicorn.workers.UvicornWorker"]
+ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:8000", "core.asgi:application" ,"-k","uvicorn.workers.UvicornWorker"]
