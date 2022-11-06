@@ -1,5 +1,6 @@
 from typing import Optional
 
+from django.contrib.auth.models import Permission
 from django.utils.translation import gettext_lazy as _
 from ninja.errors import HttpError
 
@@ -24,7 +25,7 @@ def tasks_list(*, project: Project, username: Optional[str]):
 def assign_task(
     *, task: models.Task, user: User, assigner: User
 ) -> models.TaskAssignee:
-    if assigner.id is not task.project.manager.id:
-        raise HttpError(403, _("You are not allowed to do this."))
+    if not assigner.has_perm("tasks.add_taskassignee"):
+        raise HttpError(403, _("You are not allowed to assign tasks."))
     task_assignee_obj = models.TaskAssignee.objects.create(user=user, task=task)
     return task_assignee_obj
