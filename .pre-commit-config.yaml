@@ -9,7 +9,11 @@ repos:
     hooks:
       - id: mypy
         additional_dependencies: ["django-stubs", "pydantic"]
-  - repo: https://github.com/PyCQA/isort
+  - repo: https://github.com/pycqa/isort
     rev: 5.10.1
     hooks:
       - id: isort
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.9.2
+    hooks:
+      - id: flake8

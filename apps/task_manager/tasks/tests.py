@@ -43,7 +43,7 @@ class TestSetAssignTask:
         mock_create = mocker.patch.object(models.TaskAssignee.objects, "create")
         mock_has_perm = mocker.patch.object(user, "has_perm", return_value=False)
 
-        with pytest.raises(HttpError) as error:
+        with pytest.raises(HttpError):
             # call with regular user
             services.assign_task(task=task, user=user, assigner=user)
 

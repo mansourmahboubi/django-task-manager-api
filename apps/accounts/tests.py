@@ -41,7 +41,7 @@ class TestSetLogin:
         # reload module after mocking
         reload(services)
 
-        with pytest.raises(HttpError) as error:
+        with pytest.raises(HttpError):
             services.login(**input)
 
         mock_authenticate.assert_called_once_with(**input)
